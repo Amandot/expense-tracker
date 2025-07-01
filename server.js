@@ -11,11 +11,11 @@ app.use(bodyParser.json());
 
 // 🔹 MySQL Database Connection
 const db = mysql.createConnection({
-  host: "localhost",  // Change if using a different database server
-  port:3306,
-  user: "root",        // Default MySQL user (change if needed)
-  password: "Aman@48096",        // Default MySQL password (leave empty if none)
-  database: "expense_tracker",  // Name of your database
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT || 3306,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
